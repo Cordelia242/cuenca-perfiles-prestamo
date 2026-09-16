@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "perfiles": [
+    {
+      "id": "credito-personal-basico",
+      "nombre": "Crédito personal básico",
+      "categoria": "PERSONAL",
+      "tags": ["sin-garantia", "cuota-fija"],
+      "moneda": "BOB",
+      "metodologia": "FRANCES",
+      "periodicidadPago": "MENSUAL",
+      "tramosDeTasa": [
+        {
+          "regla": {
+            "tipo": "FIJA",
+            "valor": 0.18,
+            "periodicidad": "ANUAL"
+          },
+          "duracionCuotas": null
+        }
+      ],
+      "calculoPorDiasReales": null,
+      "politicaMora": null,
+      "seguros": [],
+      "ordenDePrelacion": ["MORA", "INTERES", "SEGURO", "CARGO", "CAPITAL"]
+    }
+  ]
+}

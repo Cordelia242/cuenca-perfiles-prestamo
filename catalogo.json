@@ -7,22 +7,75 @@
       "categoria": "PERSONAL",
       "tags": ["sin-garantia", "cuota-fija"],
       "moneda": "BOB",
-      "metodologia": "FRANCES",
-      "periodicidadPago": "MENSUAL",
-      "tramosDeTasa": [
-        {
-          "regla": {
-            "tipo": "FIJA",
-            "valor": 0.18,
-            "periodicidad": "ANUAL"
-          },
-          "duracionCuotas": null
-        }
-      ],
-      "calculoPorDiasReales": null,
-      "politicaMora": null,
-      "seguros": [],
-      "ordenDePrelacion": ["MORA", "INTERES", "SEGURO", "CARGO", "CAPITAL"]
+      "familiaId": "familia-personal",
+      "padre": null,
+      "contrato": {
+        "version": 1,
+        "calendario": { "tipo": "PERIODICO", "periodicidad": "MENSUAL", "totalCuotas": 12 },
+        "tasa": {
+          "base": "CAPITAL_PENDIENTE",
+          "tramosDeTasa": [{ "regla": { "tipo": "FIJA", "valor": 0.18, "periodicidad": "ANUAL" }, "duracionCuotas": 12 }],
+          "temporalidad": "NOMINAL",
+          "momento": "AL_VENCIMIENTO",
+          "destino": "INCLUIDO_EN_PAGO"
+        },
+        "capital": { "tipo": "NIVELADO" },
+        "pago": { "tipo": "CALCULADO", "ajustarUltimaCuota": true },
+        "aplicacion": {
+          "permitirPagosParciales": true,
+          "politicaInteresFaltante": "PENDIENTE",
+          "politicaExcedente": "ABONO_CAPITAL",
+          "permitirSobrepago": true
+        },
+        "mora": { "tipo": "SIN_MORA" },
+        "cargos": [],
+        "seguros": [],
+        "ordenDePrelacion": ["MORA", "INTERES", "SEGURO", "CARGO", "CAPITAL"],
+        "redondeo": { "unidadMenor": 1, "modo": "ESTANDAR" },
+        "prepago": { "permitirAbonoExtraordinario": true, "destinoPorDefecto": "REDUCIR_CUOTA" }
+      }
+    },
+    {
+      "id": "credito-vehicular-bmsc-bob",
+      "nombre": "Crédito vehicular BMSC",
+      "categoria": "VEHICULAR",
+      "tags": ["bmsc", "vehicular", "bolivianos", "tre", "desgravamen", "prepago"],
+      "moneda": "BOB",
+      "familiaId": "familia-vehicular-bmsc",
+      "padre": null,
+      "contrato": {
+        "version": 1,
+        "calendario": { "tipo": "PERIODICO", "periodicidad": "MENSUAL", "totalCuotas": 108 },
+        "tasa": {
+          "base": "CAPITAL_PENDIENTE",
+          "tramosDeTasa": [
+            { "regla": { "tipo": "FIJA", "valor": 0.0699, "periodicidad": "ANUAL" }, "duracionCuotas": 12 },
+            { "regla": { "tipo": "INDEXADA", "indiceId": "tre", "spread": 0.0699, "periodicidad": "ANUAL" }, "duracionCuotas": 96 }
+          ],
+          "temporalidad": "NOMINAL",
+          "momento": "AL_VENCIMIENTO",
+          "destino": "INCLUIDO_EN_PAGO"
+        },
+        "capital": { "tipo": "NIVELADO" },
+        "pago": { "tipo": "CALCULADO", "ajustarUltimaCuota": true },
+        "aplicacion": {
+          "permitirPagosParciales": true,
+          "politicaInteresFaltante": "PENDIENTE",
+          "politicaExcedente": "ABONO_CAPITAL",
+          "permitirSobrepago": true
+        },
+        "mora": { "tipo": "SIN_MORA" },
+        "cargos": [],
+        "seguros": [{
+          "nombre": "Seguro de desgravamen",
+          "categoria": "DESGRAVAMEN",
+          "obligatoriedad": "OBLIGATORIO",
+          "calculo": { "tipo": "PORCENTAJE_SALDO_INSOLUTO", "tasaAnual": 0.0078, "baseTemporal": "POR_CUOTA" }
+        }],
+        "ordenDePrelacion": ["MORA", "INTERES", "SEGURO", "CARGO", "CAPITAL"],
+        "redondeo": { "unidadMenor": 1, "modo": "ESTANDAR" },
+        "prepago": { "permitirAbonoExtraordinario": true, "destinoPorDefecto": "REDUCIR_CUOTA" }
+      }
     }
   ]
 }

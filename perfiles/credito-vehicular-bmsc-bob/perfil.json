@@ -88,6 +88,7 @@
     },
     "prepago": {
       "permitirAbonoExtraordinario": true,
+      "estrategiasPermitidas": ["REDUCIR_CUOTA", "REDUCIR_PLAZO"],
       "destinoPorDefecto": "REDUCIR_CUOTA"
     }
   }

@@ -1,0 +1,70 @@
+{
+  "version": 2,
+  "id": "credito-personal-basico",
+  "nombre": "Crédito personal básico",
+  "categoria": "PERSONAL",
+  "tags": [
+    "sin-garantia",
+    "cuota-fija"
+  ],
+  "moneda": "BOB",
+  "familiaId": "familia-personal",
+  "padre": null,
+  "contrato": {
+    "version": 1,
+    "calendario": {
+      "tipo": "PERIODICO",
+      "periodicidad": "MENSUAL",
+      "totalCuotas": 12
+    },
+    "tasa": {
+      "base": "CAPITAL_PENDIENTE",
+      "tramosDeTasa": [
+        {
+          "regla": {
+            "tipo": "FIJA",
+            "valor": 0.18,
+            "periodicidad": "ANUAL"
+          },
+          "duracionCuotas": 12
+        }
+      ],
+      "temporalidad": "NOMINAL",
+      "momento": "AL_VENCIMIENTO",
+      "destino": "INCLUIDO_EN_PAGO"
+    },
+    "capital": {
+      "tipo": "NIVELADO"
+    },
+    "pago": {
+      "tipo": "CALCULADO",
+      "ajustarUltimaCuota": true
+    },
+    "aplicacion": {
+      "permitirPagosParciales": true,
+      "politicaInteresFaltante": "PENDIENTE",
+      "politicaExcedente": "ABONO_CAPITAL",
+      "permitirSobrepago": true
+    },
+    "mora": {
+      "tipo": "SIN_MORA"
+    },
+    "cargos": [],
+    "seguros": [],
+    "ordenDePrelacion": [
+      "MORA",
+      "INTERES",
+      "SEGURO",
+      "CARGO",
+      "CAPITAL"
+    ],
+    "redondeo": {
+      "unidadMenor": 1,
+      "modo": "ESTANDAR"
+    },
+    "prepago": {
+      "permitirAbonoExtraordinario": true,
+      "destinoPorDefecto": "REDUCIR_CUOTA"
+    }
+  }
+}

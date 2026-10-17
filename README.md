@@ -10,7 +10,7 @@ perfiles/<id>/descripcion.md   # descripción en Markdown (obligatoria, no vací
 ```
 
 - `<id>` usa solo minúsculas, dígitos y guiones, y coincide con el campo `id` de `perfil.json`.
-- `perfil.json` incluye `version` (entero positivo), `id`, `nombre`, `categoria`, `tags`, `moneda`, `familiaId`, `padre` y `contrato`.
+- `perfil.json` incluye `version` (entero positivo), `id`, `nombre`, `clase`, `tags`, `moneda`, `familiaId`, `padre` y `contrato`.
 - Los IDs no pueden repetirse entre carpetas y el linaje (`padre`) no puede formar ciclos.
 
 La app lista `perfiles/` con la API de contenidos de GitHub y descarga ambos archivos de cada carpeta desde la rama `main`.

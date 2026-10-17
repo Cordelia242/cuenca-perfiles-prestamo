@@ -2,7 +2,7 @@
   "version": 2,
   "id": "credito-personal-basico",
   "nombre": "Crédito personal básico",
-  "categoria": "PERSONAL",
+  "clase": "PERSONAL",
   "tags": [
     "sin-garantia",
     "cuota-fija"
